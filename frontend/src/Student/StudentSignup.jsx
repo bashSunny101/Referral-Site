@@ -30,7 +30,19 @@ function StudentSignup() {
           username : userName,
           email : email
         }
-      }).then(res => console.log(res.data , 'otp sended'))
+      }).then(res => {console.log(res.data , 'User registered');
+      localStorage.clear();
+      localStorage.setItem('username',val.username)
+      Cookies.set('status','true');
+
+
+      setIsAuthenticatedStudent(true);
+      setLoadingStudent(false);
+      console.log('before')
+      navigate('/student/studentdashboard');
+      console.log('after')
+      console.log('hello world')
+    })
       .catch(err => console.log('OTPERROR:' ,err ))
     };
 

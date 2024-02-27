@@ -36,13 +36,27 @@ function RefreeLogIn() {
         setLoading(false);
         localStorage.clear();
         localStorage.setItem('username',val.username)
-
+        Cookies.set('status','true');
         navigate('/refree/refreedashboard');
+
+
         console.log('hello world')   
       })
         .catch(err => console.log('Error:' , err))
         Cookies.set('status','true');
     }
+
+    // useEffect(() => {
+    //   // Local variable to track if redirect occurred
+    //   let didRedirect = false;
+    
+    //   // Redirect to dashboard if not already redirected and authenticated
+    //   if (!didRedirect && isAuthenticated) {
+    //     navigate('/refree/refreedashboard');
+    //     // Set the local variable to true to prevent further redirects
+    //     didRedirect = true;
+    //   }
+    // }, [isAuthenticated, navigate]);
 
   return (
     <>

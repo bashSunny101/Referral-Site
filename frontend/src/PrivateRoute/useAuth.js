@@ -1,15 +1,16 @@
+import Cookies from 'js-cookie';
 import { useState, useEffect } from 'react';
 
 const useAuth = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem('username');
-  //   if (token) {
-  //     setIsAuthenticated(true);
-  //   }
-  // }, []);
+  useEffect(() => {
+    const token = Cookies.get('status');
+    if (token) {
+      setIsAuthenticated(true);
+    }
+  }, []);
 
   
 

@@ -29,7 +29,15 @@ function RefreeSignUp() {
         company : val.companyname,
         name: val.name
       }
-    }).then(res => console.log(res.data , 'User registered'))
+    }).then(res => {console.log(res.data , 'User registered');
+    setIsAuthenticated(true);
+    setLoading(false);
+    localStorage.clear();
+    localStorage.setItem('username',val.username)
+
+    navigate('/refree/refreedashboard');
+    console.log('hello world')   
+  })
     .catch(err => console.log('Error:' , err))
   }
 
